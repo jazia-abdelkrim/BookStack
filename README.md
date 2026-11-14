@@ -65,3 +65,4 @@ All routes are under `/api`. Admin routes require a `Bearer` token for an accoun
 | `GET /admin/customers` | admin | Customer list with order totals |
 | `GET /admin/stats` | admin | Dashboard figures |
 
+> github repo link[]
