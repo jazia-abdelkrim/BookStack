@@ -1,74 +1,67 @@
-# BookStack — storefront + admin dashboard
+# BookStack
 
-React + Vite storefront, Express API, JSON-file database, JWT auth, and a full **admin dashboard** at `/admin`.
+A small full-stack e-commerce MVP for selling books: a React storefront, an Express API, and an admin dashboard for managing the catalogue, orders and customers. Prices are shown in **DZD**.
 
-## Admin dashboard
+> **MVP status:** no online payment is collected. Customers place an *order request*, and an administrator tracks it and marks it paid by hand. Data is stored in a single JSON file, which suits one server instance and a small catalogue.
 
-| Page | What you can do |
+## Features
+
+### Storefront
+- Home page, library with search and category filter, authors page
+- Customer registration and sign-in (JWT)
+- Cart drawer and order requests for signed-in customers
+- Stock is checked when an order is placed, and the ordered quantity is deducted
+
+### Admin dashboard (`/admin`)
+| Page | What it does |
 |---|---|
-| `/admin` | Revenue, orders, customers, 14-day revenue chart, order status breakdown, top sellers, low-stock alerts, recent orders |
-| `/admin/orders` | Search/filter orders, view line items, change order status (received → processing → shipped → delivered / cancelled) and payment status (unpaid / paid / refunded). Cancelling returns items to stock |
-| `/admin/books` | Add, edit, delete books; search and filter by category; price and stock management |
-| `/admin/authors` | Add, edit, delete authors (an author with books can't be deleted) |
-| `/admin/customers` | Registered accounts with order count, total spent and last order |
+| Dashboard | Revenue, order and customer counts, 14-day revenue chart, orders by status, top sellers, low-stock list (5 or fewer), recent orders |
+| Orders | Search and filter by status, view line items, change order status (`received`, `processing`, `shipped`, `delivered`, `cancelled`) and payment status (`unpaid`, `paid`, `refunded`). Cancelling an order returns its items to stock |
+| Books | Add, edit and delete books, with search and category filter. Manage price and stock |
+| Authors | Add, edit and delete authors. An author who still has books cannot be deleted |
+| Customers | Registered accounts with order count, total spent and last order date |
 
-Access is restricted to users with `role: "admin"`. Every admin API route is checked server-side (`401` signed out, `403` customer accounts). The admin UI is code-split, so storefront visitors never download it.
+The admin interface is code-split, so storefront visitors never download it.
 
-The first admin is created from `ADMIN_EMAIL` / `ADMIN_PASSWORD` on server start (an existing account with that email is promoted). Sign in at `/admin/login`.
+## Tech stack
+- **Frontend:** React 19, React Router 7, Vite 8 (plain CSS)
+- **Backend:** Node.js (20.19 or newer), Express 4, JSON-file database
+- **Security:** bcrypt password hashing, JWT sessions (7 days), Helmet headers with a Content-Security-Policy, rate-limited login and registration, server-side role checks, input validation on all admin writes, atomic database writes
 
-Placing an order now checks and decrements stock.
-
-## Run locally
-
-```bash
-npm run install:all
-cp backend/.env.example backend/.env      # edit ADMIN_EMAIL / ADMIN_PASSWORD
-npm run server                            # terminal 1 — API on :5001
-npm run dev                               # terminal 2 — site on :5173
+## Project structure
+```
+.
+├── backend/
+│   ├── server.js            # API, auth, admin routes, serves the built site in production
+│   ├── data/db.json         # seed data (8 books, 17 authors)
+│   ├── fill-authors*.js     # one-off helper scripts used to populate author data
+│   └── .env.example
+├── src/
+│   ├── admin/               # admin dashboard (pages, components, styles, API client)
+│   ├── components/          # storefront components
+│   ├── pages/               # storefront pages
+│   ├── context/             # cart state
+│   └── services/            # API and auth helpers
+├── Dockerfile
+├── render.yaml              # Render blueprint
+└── vite.config.js           # dev proxy: /api -> http://localhost:5001
 ```
 
-In development, if `ADMIN_EMAIL` is not set, a default admin `admin@bookstack.local` / `admin12345` is created (never in production).
+## API overview
 
-## Deploy (single service)
+All routes are under `/api`. Admin routes require a `Bearer` token for an account with the `admin` role (`401` when signed out, `403` for customer accounts).
 
-In production Express serves both the API and the built site from one origin, so there is no CORS or API-URL setup.
-
-### Option A — Docker (any host: VPS, Fly.io, Railway, Render…)
-
-```bash
-docker build -t bookstack .
-docker run -d -p 5001:5001 -v bookstack-data:/data \
-  -e JWT_SECRET="$(node -e "console.log(require('crypto').randomBytes(48).toString('hex'))")" \
-  -e ADMIN_EMAIL=you@yourstore.com -e ADMIN_PASSWORD='a-long-strong-password' \
-  bookstack
-```
-
-### Option B — Render
-Push to GitHub, then **New → Blueprint** and select the repo (`render.yaml` is included). Set `ADMIN_EMAIL` and `ADMIN_PASSWORD` when prompted. A paid instance is required for the persistent disk.
-
-### Option C — plain Node on a VPS
-```bash
-npm run install:all && npm run build
-cd backend && NODE_ENV=production PORT=5001 JWT_SECRET=... ADMIN_EMAIL=... ADMIN_PASSWORD=... DATA_DIR=/var/data node server.js
-```
-Put Nginx/Caddy in front for HTTPS and set `TRUST_PROXY=true`.
-
-### Environment variables
-
-| Variable | Required | Purpose |
+| Method and path | Access | Purpose |
 |---|---|---|
-| `JWT_SECRET` | prod | 32+ character random secret |
-| `ADMIN_EMAIL`, `ADMIN_PASSWORD` | first run | Creates/promotes the admin (password ≥ 10 chars in prod) |
-| `DATA_DIR` | recommended | Folder for `db.json` — **mount a persistent disk/volume here** |
-| `TRUST_PROXY` | behind a proxy | `true` so rate-limiting sees real client IPs |
-| `FRONTEND_URL` | split hosting only | Comma-separated allowed origins |
-| `VITE_API_URL` | split hosting only | Build-time API URL if the API is on another domain |
-| `PORT` | no | Defaults to 5001 |
+| `GET /health` | public | Health check |
+| `POST /auth/register`, `POST /auth/login` | public | Create account, sign in |
+| `GET /auth/me` | signed in | Current user |
+| `GET /books`, `GET /books/:id` | public | Catalogue (`search`, `authorId`, `category` filters) |
+| `GET /authors`, `GET /authors/:id` | public | Authors |
+| `POST /orders`, `GET /orders/mine` | signed in | Place an order, list own orders |
+| `POST /books`, `PUT /books/:id`, `DELETE /books/:id` | admin | Manage books |
+| `POST /authors`, `PUT /authors/:id`, `DELETE /authors/:id` | admin | Manage authors |
+| `GET /admin/orders`, `PATCH /admin/orders/:id` | admin | List and update orders |
+| `GET /admin/customers` | admin | Customer list with order totals |
+| `GET /admin/stats` | admin | Dashboard figures |
 
-## Security included
-Helmet headers + CSP, rate-limited login/register, bcrypt hashes, server-side role checks, input validation on every admin write, atomic database writes.
-
-## Before taking real money
-- Back up `db.json` regularly. The JSON database suits a single-instance MVP; move to SQLite/Postgres before scaling or running multiple instances.
-- Add a payment provider (payment status is currently set manually by the admin).
-- Add password reset, email notifications and monitoring.
