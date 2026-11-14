@@ -1,0 +1,28 @@
+{
+  "name": "stackshelf",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "server": "npm --prefix backend start",
+    "start:server": "npm --prefix backend start",
+    "build": "vite build",
+    "preview": "vite preview",
+    "server:dev": "npm --prefix backend run dev",
+    "start": "npm --prefix backend start",
+    "install:all": "npm install && npm --prefix backend install"
+  },
+  "dependencies": {
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "react-router-dom": "7.18.5"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "6.1.2",
+    "vite": "8.3.5"
+  },
+  "engines": {
+    "node": ">=20.19"
+  }
+}

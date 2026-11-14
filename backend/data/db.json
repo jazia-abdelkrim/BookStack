@@ -1,0 +1,303 @@
+{
+  "authors": [
+    {
+      "id": "author-martin-kleppmann",
+      "name": "Martin Kleppmann",
+      "bio": "Researcher, distributed systems",
+      "imageUrl": "https://covers.openlibrary.org/a/olid/OL7477772A-M.jpg",
+      "profileUrl": "",
+      "bookIds": [
+        "ddia",
+        "thoutful-machine-learning-34a7"
+      ]
+    },
+    {
+      "id": "author-robert-martin",
+      "name": "Robert C. Martin",
+      "bio": "Software craftsman",
+      "imageUrl": "https://covers.openlibrary.org/a/olid/OL2653686A-M.jpg",
+      "profileUrl": "",
+      "bookIds": [
+        "cc"
+      ]
+    },
+    {
+      "id": "author-andrew-hunt",
+      "name": "Andrew Hunt",
+      "bio": "Co-author of The Pragmatic Programmer",
+      "imageUrl": "",
+      "profileUrl": "https://www.amazon.in/Andrew-Hunt/e/B001HMRWA6",
+      "bookIds": [
+        "pp"
+      ]
+    },
+    {
+      "id": "author-david-thomas",
+      "name": "David Thomas",
+      "bio": "Co-author of The Pragmatic Programmer",
+      "imageUrl": "",
+      "profileUrl": "https://en.wikipedia.org/wiki/Dave_Thomas_(programmer)",
+      "bookIds": []
+    },
+    {
+      "id": "author-harold-abelson",
+      "name": "Harold Abelson",
+      "bio": "MIT computer scientist and educator",
+      "imageUrl": "",
+      "profileUrl": "https://en.wikipedia.org/wiki/Hal_Abelson",
+      "bookIds": [
+        "sicp"
+      ]
+    },
+    {
+      "id": "author-gerald-sussman",
+      "name": "Gerald Jay Sussman",
+      "bio": "MIT professor and computer scientist",
+      "imageUrl": "",
+      "profileUrl": "https://www.computer.org/profiles/gerald-jay-sussman",
+      "bookIds": []
+    },
+    {
+      "id": "author-brian-kernighan",
+      "name": "Brian Kernighan",
+      "bio": "Computer scientist and co-author of The C Programming Language",
+      "imageUrl": "https://covers.openlibrary.org/a/olid/OL946967A-M.jpg",
+      "profileUrl": "",
+      "bookIds": [
+        "kr"
+      ]
+    },
+    {
+      "id": "author-dennis-ritchie",
+      "name": "Dennis Ritchie",
+      "bio": "Creator of the C programming language",
+      "imageUrl": "",
+      "profileUrl": "https://en.wikipedia.org/wiki/Dennis_Ritchie",
+      "bookIds": []
+    },
+    {
+      "id": "author-eric-evans",
+      "name": "Eric Evans",
+      "bio": "Domain-driven design pioneer",
+      "imageUrl": "",
+      "profileUrl": "",
+      "bookIds": [
+        "ddd"
+      ]
+    },
+    {
+      "id": "author-erich-gamma",
+      "name": "Erich Gamma",
+      "bio": "Co-author of Design Patterns",
+      "imageUrl": "",
+      "profileUrl": "https://alchetron.com/Erich-Gamma",
+      "bookIds": [
+        "gof"
+      ]
+    },
+    {
+      "id": "author-richard-helm",
+      "name": "Richard Helm",
+      "bio": "Co-author of Design Patterns",
+      "imageUrl": "",
+      "profileUrl": "https://en.wikipedia.org/wiki/Richard_Helms",
+      "bookIds": []
+    },
+    {
+      "id": "author-ralph-johnson",
+      "name": "Ralph Johnson",
+      "bio": "Co-author of Design Patterns",
+      "imageUrl": "",
+      "profileUrl": "https://news.uchicago.edu/story/w-ralph-johnson-pre-eminent-uchicago-critic-latin-poetry-1933-2024",
+      "bookIds": []
+    },
+    {
+      "id": "author-john-vlissides",
+      "name": "John Vlissides",
+      "bio": "Co-author of Design Patterns",
+      "imageUrl": "",
+      "profileUrl": "http://c2.com/ppr/wiki/ComponentDesignPatterns/JohnVlissides.html",
+      "bookIds": []
+    },
+    {
+      "id": "author-thomas-h-cormen",
+      "name": "Thomas H. Cormen",
+      "bio": "Co-author of Introduction to Algorithms",
+      "imageUrl": "",
+      "profileUrl": "https://web.cs.dartmouth.edu/news/2013/08/algorithm-ninth-century-term-21st-century-computing",
+      "bookIds": [
+        "clrs"
+      ]
+    },
+    {
+      "id": "author-charles-e-leiserson",
+      "name": "Charles E. Leiserson",
+      "bio": "Co-author of Introduction to Algorithms",
+      "imageUrl": "",
+      "profileUrl": "https://www.eecs.mit.edu/people/charles-leiserson/",
+      "bookIds": []
+    },
+    {
+      "id": "author-ronald-l-rivest",
+      "name": "Ronald L. Rivest",
+      "bio": "Co-author of Introduction to Algorithms",
+      "imageUrl": "",
+      "profileUrl": "https://en.wikipedia.org/wiki/Ron_Rivest",
+      "bookIds": []
+    },
+    {
+      "id": "author-clifford-stein",
+      "name": "Clifford Stein",
+      "bio": "Co-author of Introduction to Algorithms",
+      "imageUrl": "",
+      "profileUrl": "https://ieor.columbia.edu/content/clifford-stein",
+      "bookIds": []
+    }
+  ],
+  "books": [
+    {
+      "id": "ddia",
+      "title": "Designing Data-Intensive Applications",
+      "authorId": "author-martin-kleppmann",
+      "authorName": "Martin Kleppmann",
+      "description": "Storage engines, replication, partitioning and consensus, explained from first principles.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9781449373320-L.jpg",
+      "category": "Data Engineering",
+      "publishedYear": 2017,
+      "price": 5400,
+      "stock": 20,
+      "color": "#2f5bff"
+    },
+    {
+      "id": "cc",
+      "title": "Clean Code",
+      "authorId": "author-robert-martin",
+      "authorName": "Robert C. Martin",
+      "description": "Naming, functions and refactoring habits that keep a codebase readable for years.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780132350884-L.jpg",
+      "category": "Code quality",
+      "publishedYear": 2008,
+      "price": 3800,
+      "stock": 20,
+      "color": "#1f8a5b"
+    },
+    {
+      "id": "pp",
+      "title": "The Pragmatic Programmer",
+      "authorId": "author-andrew-hunt",
+      "authorName": "Andrew Hunt",
+      "description": "Practical habits for debugging, tooling and building software that lasts.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780135957059-L.jpg",
+      "category": "Engineering craft",
+      "publishedYear": 1999,
+      "price": 4200,
+      "stock": 20,
+      "color": "#c2410c"
+    },
+    {
+      "id": "sicp",
+      "title": "Structure and Interpretation of Computer Programs",
+      "authorId": "author-harold-abelson",
+      "authorName": "Harold Abelson",
+      "description": "Abstraction, recursion and interpreters taught through Scheme.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780262510875-L.jpg",
+      "category": "Computer science",
+      "publishedYear": 1985,
+      "price": 4800,
+      "stock": 20,
+      "color": "#7c3aed"
+    },
+    {
+      "id": "kr",
+      "title": "The C Programming Language",
+      "authorId": "author-brian-kernighan",
+      "authorName": "Brian Kernighan",
+      "description": "The compact, definitive guide to C from the people who created it.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780131103627-L.jpg",
+      "category": "Systems programming",
+      "publishedYear": 1988,
+      "price": 3600,
+      "stock": 20,
+      "color": "#0e7490"
+    },
+    {
+      "id": "ddd",
+      "title": "Domain-Driven Design",
+      "authorId": "author-eric-evans",
+      "authorName": "Eric Evans",
+      "description": "Model complex business domains and keep code aligned with how experts think.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780321125217-L.jpg",
+      "category": "Software architecture",
+      "publishedYear": 2003,
+      "price": 5600,
+      "stock": 20,
+      "color": "#be185d"
+    },
+    {
+      "id": "gof",
+      "title": "Design Patterns",
+      "authorId": "author-erich-gamma",
+      "authorName": "Erich Gamma",
+      "description": "Twenty-three reusable object-oriented patterns and when to apply them.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780201633610-L.jpg",
+      "category": "Software architecture",
+      "publishedYear": 1994,
+      "price": 4400,
+      "stock": 20,
+      "color": "#4d7c0f"
+    },
+    {
+      "id": "clrs",
+      "title": "Introduction to Algorithms",
+      "authorId": "author-thomas-h-cormen",
+      "authorName": "Thomas H. Cormen",
+      "description": "A standard reference on algorithms, data structures and complexity analysis.",
+      "coverUrl": "https://covers.openlibrary.org/b/isbn/9780262046305-L.jpg",
+      "category": "Algorithms",
+      "publishedYear": 2022,
+      "price": 7200,
+      "stock": 20,
+      "color": "#334155"
+    },
+    {
+      "id": "thoutful-machine-learning-34a7",
+      "title": "Thoutful Machine Learning",
+      "authorId": "author-martin-kleppmann",
+      "authorName": "Martin Kleppmann",
+      "description": "",
+      "coverUrl": "https://www.oreilly.com/api/v2/epubs/urn:orm:book:9781449374075/files/assets/cover.png",
+      "category": "Data Engineering",
+      "publishedYear": 2026,
+      "price": 8000,
+      "stock": 10,
+      "color": "#ff2e2e"
+    }
+  ],
+  "users": [
+    {
+      "id": "b248a65a-2cce-44b5-ab8d-eb028117bf92",
+      "name": "Administrator",
+      "email": "admin@yourstore.com",
+      "passwordHash": "$2b$12$uME19QsxrxZ3hKWB9bGbIuZnc3TZHmVD1w2B9ggDwkOmvzkdji2RC",
+      "role": "admin",
+      "createdAt": "2026-11-13T23:22:46.653Z"
+    },
+    {
+      "id": "6553f6a1-98b3-4fd0-9fec-dc2f81603c39",
+      "name": "Administrator",
+      "email": "jazia@bookstack.com",
+      "passwordHash": "$2b$12$/uYUZFZDASI5Xb8TuSSRru8wO8n2T3MjktwbRsgn0UIH3wLEPnHhK",
+      "role": "admin",
+      "createdAt": "2026-11-13T23:30:53.008Z"
+    },
+    {
+      "id": "78347837-6855-43d6-be41-ca915eb8bca7",
+      "name": "ensta",
+      "email": "helloworld@ensta.dz",
+      "passwordHash": "$2b$12$lhx6gmYRDuaTnHhdH5i7H.xKaLtgHU/pxA9KsF/jt5FqRIgs71/xm",
+      "role": "customer",
+      "createdAt": "2026-11-14T14:13:06.491Z"
+    }
+  ],
+  "orders": []
+}

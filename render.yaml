@@ -1,0 +1,24 @@
+# Render.com blueprint: one web service + persistent disk for the JSON database
+services:
+  - type: web
+    name: bookstack
+    runtime: docker
+    plan: starter            # persistent disks require a paid instance
+    healthCheckPath: /api/health
+    disk:
+      name: bookstack-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATA_DIR
+        value: /data
+      - key: TRUST_PROXY
+        value: "true"
+      - key: JWT_SECRET
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
